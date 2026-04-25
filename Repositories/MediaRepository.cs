@@ -12,12 +12,12 @@ namespace MediaVault.Repositories
             return _items;
         }
 
-        public void AddMediaItem(MediaItem item)
+        public void Add(MediaItem item)
         {
             _items.Add(item);
         }
 
-        public bool DeleteMediaItemAsync(Guid id)
+        public bool Delete(Guid id)
         {
             var item = _items.FirstOrDefault(x => x.Id == id);
             if (item is null) return false;

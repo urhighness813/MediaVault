@@ -5,7 +5,7 @@ namespace MediaVault.Interfaces
     public interface IMediaRepository
     {
         IEnumerable<MediaItem> GetAll();
-        void AddMediaItem(MediaItem mediaItem);
-        bool DeleteMediaItemAsync(Guid id);
+        void Add(MediaItem mediaItem);
+        bool Delete(Guid id);
     }
 }
