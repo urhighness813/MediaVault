@@ -34,5 +34,25 @@ namespace MediaVault.Providers
 
             return result;
         }
+
+        public async Task<OmdbSearchResult?> SearchByImdbIdAsync(string imdbId)
+        {
+            var url = $"https://www.omdbapi.com/?i={Uri.EscapeDataString(imdbId)}&apikey={_apiKey}";
+
+            var response = await _httpClient.GetAsync(url);
+
+            if (!response.IsSuccessStatusCode) return null;
+
+            var json = await response.Content.ReadAsStringAsync();
+
+            var result = JsonSerializer.Deserialize<OmdbSearchResult>(json, new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            });
+
+            if (result?.Response != "True") return null;
+
+            return result;
+        }
     }
 }
