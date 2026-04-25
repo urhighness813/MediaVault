@@ -4,4 +4,4 @@
 bin/
 obj/
 *.code-workspace
-appsettings.json
+*.json
