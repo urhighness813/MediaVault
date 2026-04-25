@@ -26,7 +26,7 @@ namespace MediaVault.Services
     
         public async Task<MediaItem?> AddAsync(string imdbId, string format)
         {
-            var searchResult = await _omdbProvider.SearchByTitleAsync(imdbId);
+            var searchResult = await _omdbProvider.SearchByImdbIdAsync(imdbId);
 
             if (searchResult is null) return null;
 
