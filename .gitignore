@@ -1,0 +1,11 @@
+obj/Debug/net10.0/.NETCoreApp,Version=v10.0.AssemblyAttributes.cs
+obj/Debug/net10.0/MediaVault.AssemblyInfo.cs
+obj/project.nuget.cache
+Models/MediaVault.code-workspace
+obj/MediaVault.csproj.nuget.dgspec.json
+obj/MediaVault.csproj.nuget.g.props
+obj/MediaVault.csproj.nuget.g.targets
+obj/project.assets.json
+obj/Debug/net10.0/MediaVault.AssemblyInfoInputs.cache
+obj/Debug/net10.0/MediaVault.assets.cache
+obj/Debug/net10.0/MediaVault.GeneratedMSBuildEditorConfig.editorconfig
