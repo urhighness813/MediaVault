@@ -3,15 +3,20 @@ import axios from 'axios';
 
 export function useMedia() {
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const fetchData = async () => {
+      try {
+          const response = await axios.get('http://localhost:5150/api/media');
+          setData(response.data);
+      } catch (error) {
+          setError(error.message);
+      }
+  };
+
   useEffect(() => {
-    axios.get('http://localhost:5150/api/media')
-      .then(res => setData(res.data))
-      .catch(err => setError(err.message))
-      .finally(() => setLoading(false));
+    fetchData();
   }, []);
 
-  return { data, loading, error };
+  return { data, error };
 }

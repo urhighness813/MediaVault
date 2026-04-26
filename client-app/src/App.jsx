@@ -8,7 +8,7 @@ function App() {
 
   return (
     <ul>
-      {data.map(item => <li key={item.id}>{item.title}, {item.genre}</li>)}
+      {data.map(item => <li key={item.id}>{item.title}, {item.year}, {item.genre}, {item.director}, {item.format}</li>)}
     </ul>
   );
 }
