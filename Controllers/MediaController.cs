@@ -8,8 +8,6 @@ namespace MediaVault.Controllers
     public class MediaController : ControllerBase
     {
         private readonly IMediaService _mediaService;
-        public record AddMediaRequest(string ImdbId, string Format);
-
         public MediaController(IMediaService mediaService)
         {
             _mediaService = mediaService;
@@ -60,5 +58,7 @@ namespace MediaVault.Controllers
 
             return NoContent();
         }
+        public record AddMediaRequest(string ImdbId, string Format);
+
     }
 }
