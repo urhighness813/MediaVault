@@ -7,15 +7,18 @@ namespace MediaVault.Services
     {
         private readonly IMediaRepository _repository;
         private readonly IOmdbProvider _omdbProvider;
+        private readonly ILogger<MediaService> _logger;
 
-        public MediaService(IMediaRepository repository, IOmdbProvider omdbProvider)
+        public MediaService(ILogger<MediaService> logger, IMediaRepository repository, IOmdbProvider omdbProvider)
         {
+            _logger = logger;
             _repository = repository;
             _omdbProvider = omdbProvider;
         }
 
         public IEnumerable<MediaItem> GetCollection()
         {
+            _logger.LogInformation("Retrieving media collection from repository");
             return _repository.GetAll();
         }
 

@@ -1,5 +1,6 @@
 using MediaVault.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging.Console;
 
 namespace MediaVault.Controllers
 {
@@ -8,14 +9,18 @@ namespace MediaVault.Controllers
     public class MediaController : ControllerBase
     {
         private readonly IMediaService _mediaService;
-        public MediaController(IMediaService mediaService)
+        private readonly ILogger<MediaController> _logger;
+
+        public MediaController(IMediaService mediaService, ILogger<MediaController> logger)
         {
             _mediaService = mediaService;
+            _logger = logger;
         }
 
         [HttpGet]
         public IActionResult GetAll()
         {
+            _logger.LogInformation("Fetching media collection");
             var collection = _mediaService.GetCollection();
             return Ok(collection);
         }

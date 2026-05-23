@@ -4,8 +4,12 @@ using MediaVault.Providers;
 using MediaVault.Repositories;
 using MediaVault.Data;
 using Microsoft.EntityFrameworkCore;
+using MediaVault.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// logging
+builder.Logging.AddConsole();
 
 // Add services to the container.
 builder.Services.AddDbContext<MediaVaultDbContext>(options =>
